@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:#f4f4f4;
+        }
+
+        .container{
+            width:350px;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1{
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+        form{
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        input{
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:5px;
+            outline:none;
+        }
+
+        button{
+            padding:12px;
+            border:none;
+            background:black;
+            color:white;
+            cursor:pointer;
+            border-radius:5px;
+        }
+
+        button:hover{
+            opacity:0.9;
+        }
+
+        p{
+            margin-top:15px;
+            text-align:center;
+        }
+
+        a{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>sign up </h1>
+
+        <form action="/user/register" method="POST">
+
+            <input 
+                type="text" 
+                name="username" 
+                placeholder="Enter Username"
+                required
+            />
+
+            <input  
+                type="email" 
+                name="email" 
+                placeholder="Enter Email"
+                required
+            />
+
+            <input 
+                type="password" 
+                name="password" 
+                placeholder="Enter Password"
+                required
+            />
+
+            <button type="submit">sign up</button>
+
+        </form>
+
+        <p>
+         have an account?
+            <a href="/user/login">login here </a>
+        </p>
+    </div>
+
+</body>
+</html>

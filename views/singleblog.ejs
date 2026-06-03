@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    body{
+        font-family: Georgia, "Times New Roman", serif;
+        background:#121212;
+        color:#e6e6e6;
+        line-height:1.8;
+    }
+
+    .container{
+        max-width:760px;
+        margin:70px auto;
+        padding:0 22px;
+    }
+
+    .back{
+        display:inline-block;
+        margin-bottom:40px;
+        color:#9ca3af;
+        text-decoration:none;
+        font-family: Arial, sans-serif;
+        font-size:14px;
+    }
+
+    .back:hover{
+        color:#ffffff;
+    }
+
+    h1{
+        font-size:46px;
+        line-height:1.15;
+        font-weight:700;
+        margin-bottom:16px;
+        color:#f5f5f5;
+    }
+
+    .author{
+        font-family: Arial, sans-serif;
+        color:#a3a3a3;
+        font-size:15px;
+        margin-bottom:42px;
+        border-bottom:1px solid #2a2a2a;
+        padding-bottom:24px;
+    }
+
+    .content{
+        font-size:20px;
+        color:#d4d4d4;
+        letter-spacing:0.1px;
+    }
+</style>
+<body>
+    <div class="container">
+        <a href="/blogs/read" class="back">← Back to Blogs</a>
+
+        <h1><%= blogs.title %></h1>
+
+        <p class="author">By <%= blogs.author %></p>
+
+        <div class="content">
+            <p><%= blogs.content %></p>
+        </div>
+    </div>
+</body>
+</html>

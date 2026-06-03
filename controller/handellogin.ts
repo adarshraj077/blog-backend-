@@ -1,0 +1,36 @@
+import User from "../models/user"
+
+const jwt = require("jsonwebtoken");
+const bcrypt = require('bcrypt');
+
+const SECRET_KEY ="117d2715-6aab-4839-8805-bc4e8707c3c0"
+
+async function handelLogin(req:any,res:any) {
+    const {email,password} = req.body;
+    //check if email and password is correct
+    const user=await User.findOne({email:email})
+    if(!user){
+         return res.render('errorPage')
+    }
+    const isMatch = await bcrypt.compare(password, user.password);
+    if(!isMatch){
+         return res.render('errorPage')
+    }else{
+
+        const token =jwt.sign(
+              {id: user._id,
+    email: user.email,
+    username: user.username,
+    },
+             
+             SECRET_KEY,
+             
+        { expiresIn: "1h" }
+        )
+
+        res.cookie('token',token)      
+        res.redirect('/blogs/read')
+    }
+}
+
+export default handelLogin
