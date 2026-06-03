@@ -3,7 +3,7 @@ import User from "../models/user"
 const jwt = require("jsonwebtoken");
 const bcrypt = require('bcrypt');
 
-const SECRET_KEY ="117d2715-6aab-4839-8805-bc4e8707c3c0"
+const SECRET_KEY =process.env.SECRET_KEY
 
 async function handelLogin(req:any,res:any) {
     const {email,password} = req.body;
@@ -25,7 +25,7 @@ async function handelLogin(req:any,res:any) {
              
              SECRET_KEY,
              
-        { expiresIn: "1h" }
+        { expiresIn: "2h" }
         )
 
         res.cookie('token',token)      
